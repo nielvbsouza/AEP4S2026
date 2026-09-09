@@ -1,4 +1,7 @@
-# ♻️ Recicla
+ACIMA ESTA A PASTA COM OS ARQUIVOS DE DIAGRAMA E DE BANCO DE DADOS  ^^^
+
+
+♻️ Recicla View
 
 Sistema desenvolvido para facilitar o compartilhamento de conteúdos relacionados à reciclagem, meio ambiente e sustentabilidade.
 
