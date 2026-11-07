@@ -1,0 +1,10 @@
+# Copie este arquivo para "application-local.properties" (sem .exemplo) na mesma pasta
+# e preencha com a senha real. Esse arquivo NAO vai para o GitHub (esta no .gitignore).
+# No IntelliJ: Run > Edit Configurations > ReciclaViewApplication > Active profiles: local
+
+spring.datasource.url=jdbc:mysql://srv1603.hstgr.io:3306/u773559975_reciclaView?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo&characterEncoding=UTF-8
+spring.datasource.username=u773559975_reciclaView
+spring.datasource.password=123Nielvb.
+
+# Mostra os comandos SQL no console (util para estudar)
+spring.jpa.show-sql=true

@@ -1,0 +1,7 @@
+target/
+.idea/
+*.iml
+.vscode/
+# Nunca envie suas credenciais do banco para o GitHub:
+# se criar um application-local.properties com a senha real, ele fica fora do repositorio
+src/main/resources/application-local.properties
