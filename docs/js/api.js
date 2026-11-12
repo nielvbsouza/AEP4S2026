@@ -1,5 +1,3 @@
-// Guarda o login no navegador (localStorage) e faz as chamadas para a API.
-
 const Sessao = {
   get token() {
     try { return localStorage.getItem("rv_token"); } catch { return null; }
@@ -15,7 +13,7 @@ const Sessao = {
     try {
       localStorage.removeItem("rv_token");
       localStorage.removeItem("rv_usuario");
-    } catch { /* ignora */ }
+    } catch {}
   }
 };
 
@@ -39,11 +37,11 @@ async function chamar(metodo, caminho, corpo) {
   if (resposta.status === 204) return null;
 
   let dados = null;
-  try { dados = await resposta.json(); } catch { /* resposta sem corpo */ }
+  try { dados = await resposta.json(); } catch {}
 
   if (!resposta.ok) {
     if (resposta.status === 401 && Sessao.token) {
-      Sessao.limpar(); // token vencido ou inválido
+      Sessao.limpar();
       if (typeof desenharMenu === "function") desenharMenu();
     }
     throw new Error((dados && dados.message) || "Erro " + resposta.status);

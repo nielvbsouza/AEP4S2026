@@ -1,14 +1,8 @@
-// Telas do Recicla View. Todo conteúdo vindo da API é inserido como TEXTO
-// (nunca como HTML), o que evita injeção de scripts por comentários ou títulos.
-
 const app = document.getElementById("app");
 const menu = document.getElementById("menu");
 const modal = document.getElementById("modal");
 const avisoToast = document.getElementById("toast");
 
-/* ---------- utilitários ---------- */
-
-// Cria elementos de forma segura: h("div", {class: "x"}, "texto", outroElemento)
 function h(tag, props = {}, ...filhos) {
   const e = document.createElement(tag);
   for (const [chave, valor] of Object.entries(props)) {
@@ -86,8 +80,6 @@ function mostrarErroNaTela(erro) {
   app.replaceChildren(aviso(erro.message));
 }
 
-/* ---------- menu e rotas ---------- */
-
 function desenharMenu() {
   const usuario = Sessao.usuario;
   const itens = [h("a", { href: "#inicio" }, "Início")];
@@ -126,8 +118,6 @@ function rotear() {
   window.scrollTo(0, 0);
   tela().catch(mostrarErroNaTela);
 }
-
-/* ---------- tela: início (lista de vídeos) ---------- */
 
 async function telaInicio() {
   app.replaceChildren(carregando());
@@ -182,8 +172,6 @@ function cartao(video) {
       h("div", { class: "chips" }, video.categorias.map((c) => h("span", { class: "chip" }, c.nome)))));
 }
 
-/* ---------- janela do vídeo (player + comentários) ---------- */
-
 async function abrirVideo(id) {
   try {
     const [video, comentarios] = await Promise.all([Api.video(id), Api.comentarios(id)]);
@@ -234,9 +222,7 @@ async function abrirVideo(id) {
 }
 
 modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
-modal.addEventListener("close", () => modal.replaceChildren()); // para o vídeo ao fechar
-
-/* ---------- telas: entrar e cadastrar ---------- */
+modal.addEventListener("close", () => modal.replaceChildren());
 
 async function telaEntrar() {
   const email = h("input", { type: "email", required: true, placeholder: "E-mail", autocomplete: "username" });
@@ -277,8 +263,6 @@ async function telaCadastrar() {
     h("p", {}, "Já tem conta? ", h("a", { href: "#entrar" }, "Entrar"))));
 }
 
-/* ---------- tela: publicar vídeo ---------- */
-
 async function telaPublicar() {
   if (!Sessao.usuario) { location.hash = "entrar"; return; }
   app.replaceChildren(carregando());
@@ -316,8 +300,6 @@ async function telaPublicar() {
   app.replaceChildren(formulario);
 }
 
-/* ---------- tela: meus vídeos ---------- */
-
 const ROTULO_STATUS = {
   PENDENTE: "Aguardando moderação",
   APROVADO: "Aprovado",
@@ -352,8 +334,6 @@ async function telaMeus() {
     ...(itens.length ? itens : [h("p", { class: "aviso" }, "Você ainda não publicou nenhum vídeo.")]));
 }
 
-/* ---------- tela: moderação (somente moderadores) ---------- */
-
 async function telaModeracao() {
   if (!Sessao.usuario || !Sessao.usuario.moderador) { location.hash = "inicio"; return; }
   app.replaceChildren(carregando());
@@ -385,8 +365,6 @@ async function telaModeracao() {
     h("h2", {}, "Vídeos aguardando moderação"),
     ...(itens.length ? itens : [h("p", { class: "aviso" }, "Nenhum vídeo pendente. 🎉")]));
 }
-
-/* ---------- início ---------- */
 
 window.addEventListener("hashchange", rotear);
 rotear();

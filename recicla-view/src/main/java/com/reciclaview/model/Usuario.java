@@ -24,13 +24,11 @@ public class Usuario {
     @Column(nullable = false, unique = true, length = 150)
     private String email;
 
-    // A senha pode ser recebida pela API, mas nunca e devolvida no JSON
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @NotBlank
     @Column(nullable = false, length = 255)
     private String senha;
 
-    // O banco preenche com CURRENT_TIMESTAMP
     @Column(name = "data_cadastro", insertable = false, updatable = false)
     private LocalDateTime dataCadastro;
 

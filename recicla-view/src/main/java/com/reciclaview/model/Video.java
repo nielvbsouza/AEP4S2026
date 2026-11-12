@@ -37,7 +37,6 @@ public class Video {
     @Column(name = "data_publicacao", insertable = false, updatable = false)
     private LocalDateTime dataPublicacao;
 
-    // Tabela de ligacao video_categoria (N:N)
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "video_categoria",

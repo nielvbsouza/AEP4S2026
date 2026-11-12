@@ -10,9 +10,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
-/**
- * Descobre quem esta logado a partir do cabecalho "Authorization: Bearer TOKEN".
- */
 @Service
 public class AutenticacaoService {
 

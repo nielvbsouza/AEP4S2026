@@ -25,7 +25,6 @@ public class ModeracaoService {
         this.moderacoes = moderacoes;
     }
 
-    /** Registra a analise do moderador e atualiza o status do video (tudo na mesma transacao). */
     @Transactional
     public VideoResponse moderar(Integer videoId, Moderador moderador, ModeracaoRequest req) {
         Video video = videos.findById(videoId).orElseThrow(() ->

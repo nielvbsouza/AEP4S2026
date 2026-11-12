@@ -1,9 +1,3 @@
--- =====================================================
--- RECICLA VIEW - Estrutura do banco (MySQL / MariaDB)
--- Execute no phpMyAdmin da Hostinger, na aba SQL, com o banco ja selecionado.
--- Pode ser executado mais de uma vez (usa IF NOT EXISTS).
--- =====================================================
-
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

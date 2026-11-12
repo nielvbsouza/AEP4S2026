@@ -37,7 +37,6 @@ public class VideoController {
         this.auth = auth;
     }
 
-    /** Publico: apenas videos APROVADOS, com filtro opcional por categoria e por titulo. */
     @GetMapping
     public List<VideoResponse> listar(@RequestParam(required = false) Integer categoriaId,
                                       @RequestParam(required = false) String busca) {
@@ -50,7 +49,6 @@ public class VideoController {
                 .toList();
     }
 
-    /** Videos do usuario logado (qualquer status). */
     @GetMapping("/meus")
     public List<VideoResponse> meus(@RequestHeader(value = "Authorization", required = false) String cabecalho) {
         Usuario usuario = auth.exigirUsuario(cabecalho);
@@ -65,7 +63,6 @@ public class VideoController {
                 .toList();
     }
 
-    /** Video aprovado e publico. Pendente/reprovado so o dono ou um moderador enxergam. */
     @GetMapping("/{id}")
     public VideoResponse buscar(@PathVariable Integer id,
                                 @RequestHeader(value = "Authorization", required = false) String cabecalho) {
@@ -80,7 +77,6 @@ public class VideoController {
         return VideoResponse.from(video);
     }
 
-    /** O video entra como PENDENTE e so aparece para todos depois de aprovado. */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public VideoResponse publicar(@RequestHeader(value = "Authorization", required = false) String cabecalho,

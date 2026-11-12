@@ -7,10 +7,6 @@ import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Resposta publica de um video. Mostra apenas o NOME do autor (nunca e-mail ou senha).
- * "justificativa" so e preenchida na lista "Meus videos", quando o video foi reprovado.
- */
 public record VideoResponse(
         Integer id,
         String titulo,

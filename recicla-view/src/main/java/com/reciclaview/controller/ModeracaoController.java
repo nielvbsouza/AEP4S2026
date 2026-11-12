@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/** Todas as rotas desta classe exigem um usuario que seja moderador. */
 @RestController
 @RequestMapping("/api/moderacao")
 public class ModeracaoController {

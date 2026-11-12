@@ -13,10 +13,6 @@ import java.time.Instant;
 import java.util.Base64;
 import java.util.Optional;
 
-/**
- * Gera e valida tokens de login assinados (HMAC-SHA256).
- * Formato: base64url("idDoUsuario:expiracao") + "." + assinatura
- */
 @Component
 public class TokenService {
 
@@ -38,7 +34,6 @@ public class TokenService {
         return carga + "." + assinar(carga);
     }
 
-    /** Devolve o id do usuario se o token for valido e nao estiver expirado. */
     public Optional<Integer> validar(String token) {
         try {
             if (token == null) {

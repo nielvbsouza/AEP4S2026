@@ -8,10 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**
- * Endpoint de teste: abra http://localhost:8080/api/status
- * Se aparecerem as contagens, a conexao com o MySQL esta funcionando.
- */
 @RestController
 @RequestMapping("/api")
 public class StatusController {

@@ -1,13 +1,3 @@
--- =====================================================
--- RECICLA VIEW - Dados de teste (OPCIONAL)
--- Execute UMA vez, depois de estrutura.sql. Rodar de novo duplica os dados
--- (e falha nos e-mails, que sao unicos).
---
--- As contas abaixo NAO conseguem fazer login (a senha nao e um hash valido).
--- Elas existem apenas como autores dos videos de exemplo.
--- Para entrar no sistema, cadastre sua propria conta pelo site.
--- =====================================================
-
 INSERT INTO usuario (nome, email, senha) VALUES
 ('Administrador', 'admin@reciclaview.com', '!conta-de-exemplo-sem-login'),
 ('Maria Silva',   'maria@email.com',       '!conta-de-exemplo-sem-login'),

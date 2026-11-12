@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/** Padroniza os erros da API no formato {"status": 400, "message": "..."} que o front le. */
 @RestControllerAdvice
 public class ErroHandler {
 
